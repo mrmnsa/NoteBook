@@ -1,0 +1,456 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.exam.helloworld</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.annotation.SuppressLint</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.EditText</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Toast</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.HashMap</span><span class="s0">;</span>
+
+<span class="s2">//定义实现监听接口的类MainActivity</span>
+<span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity </span><span class="s0">implements </span><span class="s1">View.OnClickListener {</span><span class="s2">//</span>
+    <span class="s2">//声明19个按钮和一个文本编辑框,声明初始化控件view(Button)</span>
+    <span class="s1">Button but1</span><span class="s0">;</span>
+    <span class="s1">Button but2</span><span class="s0">;</span>
+    <span class="s1">Button but3</span><span class="s0">;</span>
+    <span class="s1">Button but4</span><span class="s0">;</span>
+    <span class="s1">Button but5</span><span class="s0">;</span>
+    <span class="s1">Button but6</span><span class="s0">;</span>
+    <span class="s1">Button but7</span><span class="s0">;</span>
+    <span class="s1">Button but8</span><span class="s0">;</span>
+    <span class="s1">Button but9</span><span class="s0">;</span>
+    <span class="s1">Button but0</span><span class="s0">;</span>
+    <span class="s1">Button butAC</span><span class="s0">;</span>
+    <span class="s1">Button butDelete</span><span class="s0">;</span>
+    <span class="s1">Button butDiv</span><span class="s0">;</span>
+    <span class="s1">Button butRemain</span><span class="s0">;</span>
+    <span class="s1">Button butSub</span><span class="s0">;</span>
+    <span class="s1">Button butAdd</span><span class="s0">;</span>
+    <span class="s1">Button butMulti</span><span class="s0">;</span>
+    <span class="s1">Button butPoint</span><span class="s0">;</span>
+    <span class="s1">Button butEdu</span><span class="s0">;</span>
+    <span class="s1">Button butPing</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">EditText butResult</span><span class="s0">;</span><span class="s2">//文本</span>
+    <span class="s0">boolean </span><span class="s1">clear</span><span class="s0">;</span><span class="s2">//判断是否为空</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span><span class="s2">//</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span><span class="s0">;</span><span class="s2">//显示activity_main定义的用户界面</span>
+        <span class="s1">intView()</span><span class="s0">; </span><span class="s2">//调用</span>
+
+    <span class="s1">}</span>
+
+    <span class="s2">//用于与用户界面程序中的组件建立关联，并分别注册监听接口</span>
+    <span class="s0">public void </span><span class="s1">intView() {</span>
+
+        <span class="s2">//通过findViewById查找对应控件的id</span>
+        <span class="s1">but1 = (Button) findViewById(R.id.but1)</span><span class="s0">;</span>
+        <span class="s1">but1.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span><span class="s2">//this是访问当前类的接口的一个对象，就是把当前OnClick事件绑定到控件view上面去</span>
+        <span class="s2">//实例化对象</span>
+        <span class="s1">but0 = (Button) findViewById(R.id.but0)</span><span class="s0">;</span>
+        <span class="s2">//给按钮设置点击事件</span>
+        <span class="s1">but0.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">but2 = findViewById(R.id.but2)</span><span class="s0">;</span>
+        <span class="s1">but2.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butPing = findViewById(R.id.butPing)</span><span class="s0">;</span>
+        <span class="s1">butPing.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">but3 = findViewById(R.id.but3)</span><span class="s0">;</span>
+        <span class="s1">but3.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">but4 = findViewById(R.id.but4)</span><span class="s0">;</span>
+        <span class="s1">but4.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">but5 = findViewById(R.id.but5)</span><span class="s0">;</span>
+        <span class="s1">but5.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">but6 = findViewById(R.id.but6)</span><span class="s0">;</span>
+        <span class="s1">but6.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">but7 = findViewById(R.id.but7)</span><span class="s0">;</span>
+        <span class="s1">but7.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">but8 = findViewById(R.id.but8)</span><span class="s0">;</span>
+        <span class="s1">but8.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">but9 = findViewById(R.id.but9)</span><span class="s0">;</span>
+        <span class="s1">but9.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butAC = findViewById(R.id.butAC)</span><span class="s0">;</span>
+        <span class="s1">butAC.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butAdd = findViewById(R.id.butAdd)</span><span class="s0">;</span>
+        <span class="s1">butAdd.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butDelete = findViewById(R.id.butDelete)</span><span class="s0">;</span>
+        <span class="s1">butDelete.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butDiv = findViewById(R.id.butDiv)</span><span class="s0">;</span>
+        <span class="s1">butDiv.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butEdu = findViewById(R.id.butEdu)</span><span class="s0">;</span>
+        <span class="s1">butEdu.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butSub = findViewById(R.id.butSub)</span><span class="s0">;</span>
+        <span class="s1">butSub.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butMulti = findViewById(R.id.butMulti)</span><span class="s0">;</span>
+        <span class="s1">butMulti.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butPoint = findViewById(R.id.butPoint)</span><span class="s0">;</span>
+        <span class="s1">butPoint.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butRemain = findViewById(R.id.butRemain)</span><span class="s0">;</span>
+        <span class="s1">butRemain.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">butResult = (EditText) findViewById(R.id.butResult)</span><span class="s0">;</span>
+        <span class="s2">// butResult.setOnClickListener(this);</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">@SuppressLint({</span><span class="s3">&quot;NonConstantResourceId&quot;</span><span class="s0">, </span><span class="s3">&quot;SetTextI18n&quot;</span><span class="s1">})</span>
+    <span class="s1">@Override</span>
+    <span class="s2">//onClick()方法，触发OnClickListener接口</span>
+    <span class="s0">public void </span><span class="s1">onClick(View v) {</span><span class="s2">//接口的方式实现监听</span>
+        <span class="s1">String str = butResult.getText().toString()</span><span class="s0">;</span><span class="s2">//获取文本框的内容</span>
+        <span class="s0">switch </span><span class="s1">(v.getId()) {</span>
+            <span class="s0">case </span><span class="s1">R.id.but0:</span>
+            <span class="s0">case </span><span class="s1">R.id.but1:</span>
+            <span class="s0">case </span><span class="s1">R.id.but2:</span>
+            <span class="s0">case </span><span class="s1">R.id.but3:</span>
+            <span class="s0">case </span><span class="s1">R.id.but4:</span>
+            <span class="s0">case </span><span class="s1">R.id.but5:</span>
+            <span class="s0">case </span><span class="s1">R.id.but6:</span>
+            <span class="s0">case </span><span class="s1">R.id.but7:</span>
+            <span class="s0">case </span><span class="s1">R.id.but8:</span>
+            <span class="s0">case </span><span class="s1">R.id.but9:</span>
+            <span class="s0">case </span><span class="s1">R.id.butPoint:</span>
+                <span class="s0">if </span><span class="s1">(clear) {</span>
+                    <span class="s1">clear = </span><span class="s0">false;</span>
+                    <span class="s1">str = </span><span class="s3">&quot;&quot;</span><span class="s0">;</span>
+                    <span class="s1">butResult.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                <span class="s1">butResult.setText(str + ((Button) v).getText())</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+
+            <span class="s0">case </span><span class="s1">R.id.butAdd:</span>
+            <span class="s0">case </span><span class="s1">R.id.butMulti:</span>
+            <span class="s0">case </span><span class="s1">R.id.butSub:</span>
+            <span class="s0">case </span><span class="s1">R.id.butRemain:</span>
+            <span class="s0">case </span><span class="s1">R.id.butDiv:</span>
+            <span class="s0">case </span><span class="s1">R.id.butPing:</span>
+                <span class="s0">if </span><span class="s1">(clear) {</span>
+                    <span class="s1">clear = </span><span class="s0">false;</span>
+                    <span class="s1">str = </span><span class="s3">&quot;&quot;</span><span class="s0">;</span>
+                    <span class="s1">butResult.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                <span class="s1">butResult.setText(str + </span><span class="s3">&quot; &quot; </span><span class="s1">+ ((Button) v).getText())</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+            <span class="s0">case </span><span class="s1">R.id.butDelete:</span>
+                <span class="s1">getOffSet()</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+            <span class="s0">case </span><span class="s1">R.id.butAC:</span>
+                <span class="s0">if </span><span class="s1">(clear) {</span>
+                    <span class="s1">clear = </span><span class="s0">false;</span>
+                    <span class="s1">str = </span><span class="s3">&quot;&quot;</span><span class="s0">;</span>
+                    <span class="s1">butResult.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">} </span><span class="s0">else if </span><span class="s1">(!str.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) {</span>
+                    <span class="s1">butResult.setText(str.substring(</span><span class="s4">0</span><span class="s0">, </span><span class="s1">str.length() - </span><span class="s4">1</span><span class="s1">))</span><span class="s0">;</span>
+
+                <span class="s1">}</span>
+                <span class="s0">break;</span>
+            <span class="s0">case </span><span class="s1">R.id.butEdu:</span><span class="s2">//单独运算最后结果</span>
+                <span class="s1">getResult()</span><span class="s0">;</span>
+                <span class="s0">break;</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">@SuppressLint({</span><span class="s3">&quot;SetTextI18n&quot;</span><span class="s0">, </span><span class="s3">&quot;WrongConstant&quot;</span><span class="s1">})</span>
+    <span class="s0">private void </span><span class="s1">getOffSet() { </span><span class="s2">//正负互换的功能</span>
+        <span class="s1">String oss = butResult.getText().toString()</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(clear) {</span>
+            <span class="s1">clear = </span><span class="s0">false;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s1">clear = </span><span class="s0">true;</span>
+
+        <span class="s0">double </span><span class="s1">d2 = Double.parseDouble(oss)</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(oss.equals(</span><span class="s3">&quot;0&quot;</span><span class="s1">)) {</span>
+            <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;0不是正负数&quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span><span class="s2">//默认toast</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(oss.contains(</span><span class="s3">&quot;-&quot;</span><span class="s1">)) {</span>
+            <span class="s1">String s1 = oss.substring(oss.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s1">) + </span><span class="s4">2</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s0">double </span><span class="s1">d1 = Double.parseDouble(s1)</span><span class="s0">;</span>
+            <span class="s1">butResult.setText(</span><span class="s3">&quot;&quot; </span><span class="s1">+ d1)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">butResult.setText(</span><span class="s3">&quot;-&quot; </span><span class="s1">+ d2)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@SuppressLint({</span><span class="s3">&quot;WrongConstant&quot;</span><span class="s0">, </span><span class="s3">&quot;SetTextI18n&quot;</span><span class="s1">})</span>
+    <span class="s0">private void </span><span class="s1">getResult() {</span>
+        <span class="s1">String result = butResult.getText().toString()</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(result.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) {</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s0">if </span><span class="s1">(!result.contains(</span><span class="s3">&quot; &quot;</span><span class="s1">)) {</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s0">if </span><span class="s1">(clear) {</span>
+            <span class="s1">clear = </span><span class="s0">false;</span>
+            <span class="s0">return;</span>
+        <span class="s1">}</span>
+        <span class="s1">clear = </span><span class="s0">true;</span>
+<span class="s2">//截取运算符前面的字符串</span>
+        <span class="s1">String s1 = result.substring(</span><span class="s4">0</span><span class="s0">, </span><span class="s1">result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s1">))</span><span class="s0">;</span>
+<span class="s2">//截取的运算符</span>
+        <span class="s1">String op = result.substring(result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s1">) + </span><span class="s4">1</span><span class="s0">, </span><span class="s1">result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s1">) + </span><span class="s4">2</span><span class="s1">)</span><span class="s0">;</span>
+<span class="s2">//截取运算符后面的字符串</span>
+        <span class="s2">//  int beginIndex = result.indexOf(&quot; &quot;, result.indexOf(&quot; &quot;) + 1);</span>
+        <span class="s1">String s2 = result.substring(result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s1">) + </span><span class="s4">2</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">beginIndex = result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s0">, </span><span class="s1">result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s1">) + </span><span class="s4">3</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">double </span><span class="s1">cnt = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">Num1 = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">Num2 = </span><span class="s4">0</span><span class="s0">;</span>
+<span class="s0">int </span><span class="s1">Num3=</span><span class="s4">0</span><span class="s0">,</span><span class="s1">Num4=</span><span class="s4">0</span><span class="s0">,</span><span class="s1">Num5=</span><span class="s4">0</span><span class="s0">,</span><span class="s1">Num6=</span><span class="s4">0</span><span class="s0">,</span><span class="s1">Num7=</span><span class="s4">0</span><span class="s0">,</span><span class="s1">Num8=</span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s1">String str1 = </span><span class="s3">&quot;+&quot;</span><span class="s0">,</span><span class="s1">str2=</span><span class="s3">&quot;-&quot;</span><span class="s0">,</span><span class="s1">str3=</span><span class="s3">&quot;/&quot;</span><span class="s0">,</span><span class="s1">str4=</span><span class="s3">&quot;%&quot;</span><span class="s0">,</span><span class="s1">str5=</span><span class="s3">&quot;*&quot;</span><span class="s0">,</span><span class="s1">str6=</span><span class="s3">&quot;√&quot;</span><span class="s0">,</span><span class="s1">str7=</span><span class="s3">&quot;.&quot;</span><span class="s0">;</span>
+    
+        <span class="s0">char </span><span class="s1">ch1= str1.charAt(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">char </span><span class="s1">ch2=str2.charAt(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">char </span><span class="s1">ch3=str3.charAt(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">char </span><span class="s1">ch4=str4.charAt(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">char </span><span class="s1">ch5=str5.charAt(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">char </span><span class="s1">ch6=str6.charAt(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+       <span class="s2">// char ch7=str7.charAt(0);</span>
+       <span class="s2">// char ch8=str8.charAt(0);</span>
+
+        <span class="s1">String starch1 = String.valueOf(ch1)</span><span class="s0">;</span>
+        <span class="s1">String starch2= String.valueOf(ch2)</span><span class="s0">;</span>
+        <span class="s1">String starch3= String.valueOf(ch3)</span><span class="s0">;</span>
+        <span class="s1">String starch4= String.valueOf(ch4)</span><span class="s0">;</span>
+        <span class="s1">String starch5= String.valueOf(ch5)</span><span class="s0">;</span>
+        <span class="s1">String starch6= String.valueOf(ch6)</span><span class="s0">;</span>
+       <span class="s2">// String strch7=String.valueOf(ch7);</span>
+       <span class="s2">// String strch8=String.valueOf(ch8);</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; result.length()</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s0">if </span><span class="s1">(starch1.equals(result.substring(i</span><span class="s0">, </span><span class="s1">i + </span><span class="s4">1</span><span class="s1">)))</span>
+                <span class="s1">Num1++</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">(starch2.equals(result.substring(i</span><span class="s0">, </span><span class="s1">i + </span><span class="s4">1</span><span class="s1">)))</span>
+                <span class="s1">Num2++</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">(starch3.equals(result.substring(i</span><span class="s0">, </span><span class="s1">i + </span><span class="s4">1</span><span class="s1">)))</span>
+                <span class="s1">Num3++</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">(starch4.equals(result.substring(i</span><span class="s0">, </span><span class="s1">i + </span><span class="s4">1</span><span class="s1">)))</span>
+                <span class="s1">Num4++</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">(starch5.equals(result.substring(i</span><span class="s0">, </span><span class="s1">i + </span><span class="s4">1</span><span class="s1">)))</span>
+                <span class="s1">Num5++</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">(starch6.equals(result.substring(i</span><span class="s0">, </span><span class="s1">i + </span><span class="s4">1</span><span class="s1">)))</span>
+                <span class="s1">Num6++</span><span class="s0">;</span>
+           <span class="s2">// if (strch7.equals(s1.substring(i, i + 1)))</span>
+            <span class="s2">//    Num7++;</span>
+            <span class="s2">//if (strch7.equals(s2.substring(i, i + 1)))</span>
+             <span class="s2">//   Num8++;</span>
+        <span class="s1">}</span>
+<span class="s0">int </span><span class="s1">sum=Num1+Num2+Num3+Num4+Num5+Num6</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">sum1=Num1+Num2</span><span class="s0">;</span>
+        <span class="s2">//int sum3=Num7+Num8;</span>
+        <span class="s0">if</span><span class="s1">(sum==</span><span class="s4">0</span><span class="s1">){</span>
+            <span class="s1">butResult.setText(result)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">else if </span><span class="s1">(sum&gt;</span><span class="s4">2</span><span class="s1">) {</span>
+            <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;输入法不对 ,重来&quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span><span class="s2">//默认toast</span>
+           <span class="s2">// butResult.setText(0);</span>
+        <span class="s1">}</span>
+
+<span class="s2">//两个数都不是空</span>
+        <span class="s0">else if</span><span class="s1">(sum == </span><span class="s4">1</span><span class="s1">) {</span>
+            <span class="s0">if </span><span class="s1">(!s1.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">) &amp;&amp; !s2.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) {</span>
+                <span class="s0">double </span><span class="s1">d1 = Double.parseDouble(s1)</span><span class="s0">;</span><span class="s2">//用Double.parseDouble()是把括号里面内容变成double类型的</span>
+                <span class="s0">double </span><span class="s1">d2 = Double.parseDouble(s2)</span><span class="s0">;</span>
+                <span class="s0">switch </span><span class="s1">(op) {</span>
+                    <span class="s0">case </span><span class="s3">&quot;+&quot;</span><span class="s1">:</span>
+                        <span class="s1">cnt = d1 + d2</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;-&quot;</span><span class="s1">:</span>
+                        <span class="s1">cnt = d1 - d2</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;*&quot;</span><span class="s1">:</span>
+                        <span class="s1">cnt = d1 * d2</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;%&quot;</span><span class="s1">:</span>
+                        <span class="s1">cnt = d1 % d2</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;/&quot;</span><span class="s1">:{</span>
+                        <span class="s0">if </span><span class="s1">(d2 == </span><span class="s4">0</span><span class="s1">) {</span>
+                            <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;非法输入！！除数不能为0&quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span><span class="s2">//默认toast</span>
+                        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                            <span class="s1">cnt = d1 / d2</span><span class="s0">;</span>
+                        <span class="s1">}</span>
+                        <span class="s0">break;</span>
+                <span class="s1">}}</span>
+                <span class="s0">if </span><span class="s1">(s1.contains(</span><span class="s3">&quot;.&quot;</span><span class="s1">) &amp;&amp; s2.contains(</span><span class="s3">&quot;.&quot;</span><span class="s1">)) {</span>
+                    <span class="s0">double </span><span class="s1">res = (</span><span class="s0">double</span><span class="s1">) cnt</span><span class="s0">;</span>
+
+                    <span class="s1">butResult.setText(res + </span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                    <span class="s1">butResult.setText(cnt + </span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+            <span class="s2">//如果s1是空 s2不是空 就执行下一步</span>
+                   <span class="s0">if </span><span class="s1">(s1.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) {</span>
+                <span class="s2">// double d1 = Double.parseDouble(s1);//用Double.parseDouble()是把括号里面内容变成double类型的</span>
+                <span class="s0">double </span><span class="s1">d2 = Double.parseDouble(s2)</span><span class="s0">;</span>
+                <span class="s0">switch </span><span class="s1">(op) {</span>
+                    <span class="s0">case </span><span class="s3">&quot;+&quot;</span><span class="s1">:</span>
+                    <span class="s0">case </span><span class="s3">&quot;-&quot;</span><span class="s1">:</span>
+                    <span class="s0">case </span><span class="s3">&quot;*&quot;</span><span class="s1">:</span>
+                    <span class="s0">case </span><span class="s3">&quot;/&quot;</span><span class="s1">:</span>
+                        <span class="s1">butResult.setText(result)</span><span class="s0">;</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;√&quot;</span><span class="s1">: {</span>
+                        <span class="s1">cnt = Math.sqrt(d2)</span><span class="s0">;</span>
+                        <span class="s1">butResult.setText(cnt + </span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                    <span class="s0">break;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+       <span class="s0">else if</span><span class="s1">(sum==</span><span class="s4">2</span><span class="s1">){</span>
+            <span class="s0">int </span><span class="s1">i = result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s0">, </span><span class="s1">result.indexOf(</span><span class="s3">&quot;&quot;</span><span class="s1">) + </span><span class="s4">1</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">String a2=result.substring(i+</span><span class="s4">2</span><span class="s1">)</span><span class="s0">;</span>
+           <span class="s1">String op2=result.substring(i+</span><span class="s4">1</span><span class="s0">,</span><span class="s1">i+</span><span class="s4">2</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">String a1=result.substring(result.indexOf(</span><span class="s3">&quot; &quot;</span><span class="s1">)+</span><span class="s4">2</span><span class="s0">,</span><span class="s1">i)</span><span class="s0">;</span>
+            <span class="s0">double </span><span class="s1">d1 = Double.parseDouble(a1)</span><span class="s0">;</span><span class="s2">//用Double.parseDouble()是把括号里面内容变成double类型的</span>
+            <span class="s0">double </span><span class="s1">d2 = Double.parseDouble(a2)</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">(s1.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">) &amp;&amp; !a1.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)&amp;&amp;!a2.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) {</span>
+
+                <span class="s0">switch </span><span class="s1">(op) {</span>
+                    <span class="s0">case </span><span class="s3">&quot;+&quot;</span><span class="s1">: {</span>
+                        <span class="s0">switch </span><span class="s1">(op2) {</span>
+                            <span class="s0">case </span><span class="s3">&quot;+&quot;</span><span class="s1">:</span>
+                                <span class="s1">cnt = d1 + d2</span><span class="s0">;</span>
+                                <span class="s0">break;</span>
+                            <span class="s0">case </span><span class="s3">&quot;-&quot;</span><span class="s1">:</span>
+                                <span class="s1">cnt = d1 - d2</span><span class="s0">;</span>
+                                <span class="s0">break;</span>
+                            <span class="s0">case </span><span class="s3">&quot;*&quot;</span><span class="s1">:</span>
+                                <span class="s1">cnt = d1 * d2</span><span class="s0">;</span>
+                                <span class="s0">break;</span>
+
+                            <span class="s0">case </span><span class="s3">&quot;√&quot;</span><span class="s1">: {</span>
+                                <span class="s1">cnt = d1 * Math.sqrt(d2)</span><span class="s0">;</span>
+                                <span class="s1">butResult.setText(cnt + </span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                            <span class="s1">}</span>
+                            <span class="s0">break;</span>
+                            <span class="s0">case </span><span class="s3">&quot;/&quot;</span><span class="s1">:</span>
+                                <span class="s0">if </span><span class="s1">(d2 == </span><span class="s4">0</span><span class="s1">) {</span>
+                                    <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;非法输入！！除数不能为0&quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span><span class="s2">//默认toast</span>
+                                <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                                    <span class="s1">cnt = d1 / d2</span><span class="s0">;</span>
+                                <span class="s1">}</span>
+                                <span class="s0">break;</span>
+                        <span class="s1">}</span>
+                    <span class="s1">}</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;-&quot;</span><span class="s1">: {</span>
+                        <span class="s0">switch </span><span class="s1">(op2) {</span>
+                            <span class="s0">case </span><span class="s3">&quot;+&quot;</span><span class="s1">:</span>
+                                <span class="s1">cnt = d2 - d1</span><span class="s0">;</span>
+                                <span class="s0">break;</span>
+                            <span class="s0">case </span><span class="s3">&quot;-&quot;</span><span class="s1">: {</span>
+                                <span class="s1">cnt = -d1 + -d2</span><span class="s0">;</span>
+                               <span class="s2">// butResult.setText(&quot;-&quot; + cnt);</span>
+                            <span class="s1">}</span>
+                            <span class="s0">break;</span>
+                            <span class="s0">case </span><span class="s3">&quot;*&quot;</span><span class="s1">: {</span>
+                                <span class="s1">cnt = -d1 * d2</span><span class="s0">;</span>
+
+                            <span class="s1">}</span>
+                            <span class="s0">break;</span>
+                            <span class="s0">case </span><span class="s3">&quot;√&quot;</span><span class="s1">: {</span>
+                                <span class="s1">cnt = -d1 * Math.sqrt(d2)</span><span class="s0">;</span>
+                                <span class="s2">//butResult.setText(&quot;-&quot; + cnt);</span>
+                            <span class="s1">}</span>
+                            <span class="s0">break;</span>
+                            <span class="s0">case </span><span class="s3">&quot;/&quot;</span><span class="s1">: {</span>
+                                <span class="s0">if </span><span class="s1">(d2 == </span><span class="s4">0</span><span class="s1">) {</span>
+                                    <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;非法输入！！除数不能为0&quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span><span class="s2">//默认toast</span>
+                                <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                                    <span class="s1">cnt = -d1 / d2</span><span class="s0">;</span>
+                                   <span class="s2">// butResult.setText(&quot;-&quot; + cnt);</span>
+                                <span class="s1">}</span>
+                            <span class="s1">}</span>
+                            <span class="s0">break;</span>
+                        <span class="s1">}</span>
+                        <span class="s1">butResult.setText(cnt+</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                        <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;√&quot;</span><span class="s1">: {</span>
+                        <span class="s0">if</span><span class="s1">(op2.equals(</span><span class="s3">&quot;-&quot;</span><span class="s1">))</span>
+                            <span class="s2">//Toast.makeText(this, &quot;非法输入！！不能负数&quot;, 1).show();//默认toast</span>
+                            <span class="s1">cnt = Math.sqrt(d1)-d2</span><span class="s0">;</span>
+                         <span class="s0">else if</span><span class="s1">(op2.equals(</span><span class="s3">&quot;+&quot;</span><span class="s1">))</span>
+                        <span class="s1">cnt = Math.sqrt(d1)+d2</span><span class="s0">;</span>
+                        <span class="s0">else if</span><span class="s1">(op2.equals(</span><span class="s3">&quot;*&quot;</span><span class="s1">))</span>
+                            <span class="s1">cnt = Math.sqrt(d1)*d2</span><span class="s0">;</span>
+                        <span class="s0">else if</span><span class="s1">(op2.equals(</span><span class="s3">&quot;/&quot;</span><span class="s1">))</span>
+                            <span class="s1">cnt = Math.sqrt(d1)/d2</span><span class="s0">;</span>
+                        <span class="s0">else if</span><span class="s1">(op2.equals(</span><span class="s3">&quot;%&quot;</span><span class="s1">))</span>
+                            <span class="s1">cnt = Math.sqrt(d1)%d2</span><span class="s0">;</span>
+                       <span class="s2">// butResult.setText(cnt + &quot;&quot;);</span>
+                    <span class="s1">}</span>
+                    <span class="s0">break;</span>
+                    <span class="s0">case </span><span class="s3">&quot;*&quot;</span><span class="s1">:</span>
+                    <span class="s0">case </span><span class="s3">&quot;%&quot;</span><span class="s1">:</span>
+                    <span class="s0">case </span><span class="s3">&quot;/&quot;</span><span class="s1">: {</span>
+                        <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;输入不正确!!! &quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                    <span class="s0">break;</span>
+                <span class="s1">}</span>
+                <span class="s0">if </span><span class="s1">(a1.contains(</span><span class="s3">&quot;.&quot;</span><span class="s1">) &amp;&amp; a2.contains(</span><span class="s3">&quot;.&quot;</span><span class="s1">)) {</span>
+                    <span class="s0">double </span><span class="s1">res = (</span><span class="s0">double</span><span class="s1">) cnt</span><span class="s0">;</span>
+                    <span class="s1">butResult.setText(res + </span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                    <span class="s1">butResult.setText(cnt + </span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+           <span class="s0">else if</span><span class="s1">(s1.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)&amp;&amp;a1.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)&amp;&amp;!a2.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)){</span>
+               <span class="s0">if</span><span class="s1">(op.equals(</span><span class="s3">&quot;√&quot;</span><span class="s1">)){</span>
+                   <span class="s0">if</span><span class="s1">(op2.equals(</span><span class="s3">&quot;-&quot;</span><span class="s1">))</span>
+                       <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;非法输入！！不能负数&quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span><span class="s2">//默认toast</span>
+                       <span class="s2">//cnt = Math.sqrt(d2);</span>
+                   <span class="s0">else if</span><span class="s1">(op2.equals(</span><span class="s3">&quot;+&quot;</span><span class="s1">)) {</span>
+                       <span class="s1">cnt = Math.sqrt(d2)</span><span class="s0">;</span>
+                       <span class="s1">butResult.setText(cnt + </span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                   <span class="s1">}</span>
+                   <span class="s0">else</span>
+                       <span class="s1">Toast.makeText(</span><span class="s0">this, </span><span class="s3">&quot;输入不正确!!! &quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span>
+
+               <span class="s1">}</span>
+               <span class="s0">else</span>
+                <span class="s1">Toast.makeText(</span><span class="s0">this,</span><span class="s3">&quot;输入不正确!!! &quot;</span><span class="s0">,</span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span>
+                <span class="s2">//butResult.setText(0);</span>
+            <span class="s1">}</span>
+           <span class="s0">else if</span><span class="s1">(a1.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)&amp;&amp;a2.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)){</span>
+                <span class="s1">Toast.makeText(</span><span class="s0">this,</span><span class="s3">&quot;输入不正确!!! &quot;</span><span class="s0">,</span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span>
+
+            <span class="s1">}</span>
+           <span class="s0">else</span>
+                <span class="s1">Toast.makeText(</span><span class="s0">this,</span><span class="s3">&quot;输入不正确!!! &quot;</span><span class="s0">,</span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span>
+
+        <span class="s1">}</span>
+<span class="s0">else</span>
+            <span class="s1">Toast.makeText(</span><span class="s0">this,</span><span class="s3">&quot;输入不正确!!! &quot;</span><span class="s0">,</span><span class="s4">1</span><span class="s1">).show()</span><span class="s0">;</span>
+
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
